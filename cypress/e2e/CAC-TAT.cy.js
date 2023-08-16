@@ -16,9 +16,9 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
     cy.clock()
 
-    cy.get('#firstName').type('Walmyr')
-    cy.get('#lastName').type('Filho')
-    cy.get('#email').type('walmyr@exemplo.com')
+    cy.get('#firstName').type('Ricardo')
+    cy.get('#lastName').type('Volk')
+    cy.get('#email').type('volk@exemplo.com')
     cy.get('#open-text-area').type(longText, { delay: 0 })
     cy.contains('button', 'Enviar').click()
 
@@ -32,9 +32,9 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', function() {
     cy.clock()
 
-    cy.get('#firstName').type('Walmyr')
-    cy.get('#lastName').type('Filho')
-    cy.get('#email').type('walmyr@exemplo,com')
+    cy.get('#firstName').type('Ricardo')
+    cy.get('#lastName').type('volk')
+    cy.get('#email').type('volk@exemplo,com')
     cy.get('#open-text-area').type('Teste')
     cy.contains('button', 'Enviar').click()
 
@@ -56,9 +56,9 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function() {
     cy.clock()
 
-    cy.get('#firstName').type('Walmyr')
-    cy.get('#lastName').type('Filho')
-    cy.get('#email').type('walmyr@exemplo.com')
+    cy.get('#firstName').type('ricardo')
+    cy.get('#lastName').type('volk')
+    cy.get('#email').type('volk@exemplo.com')
     cy.get('#phone-checkbox').check()
     cy.get('#open-text-area').type('Teste')
     cy.contains('button', 'Enviar').click()
@@ -72,18 +72,18 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
   it('preenche e limpa os campos nome, sobrenome, email e telefone', function() {
     cy.get('#firstName')
-      .type('Walmyr')
-      .should('have.value', 'Walmyr')
+      .type('ricardo')
+      .should('have.value', 'ricardo')
       .clear()
       .should('have.value', '')
     cy.get('#lastName')
-      .type('Filho')
-      .should('have.value', 'Filho')
+      .type('volk')
+      .should('have.value', 'volk')
       .clear()
       .should('have.value', '')
     cy.get('#email')
-      .type('walmyr@exemplo.com')
-      .should('have.value', 'walmyr@exemplo.com')
+      .type('volk@exemplo.com')
+      .should('have.value', 'volk@exemplo.com')
       .clear()
       .should('have.value', '')
     cy.get('#phone')
